@@ -19,35 +19,45 @@ int main() {
   int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,   //player cards
            sea_hag, tribute, smithy};
 
-  printf ("Starting unittest1.\n");               //output
+  printf ("Beginning unittest1...\n");               //output
 
   gameInstance = initializeGame(4, k, 1, &G);     //
-  assert(gameInstance == 0);
-  printf ("Game Initialized\n");
+  if(gameInstance != 0){
+    printf ("game initialization TEST FAILED\n");
+    exit(1);
+  }
 
   gameInstance = isGameOver(&G);
-  assert(gameInstance == 0);
-  printf ("Game is not over\n");
+  if(gameInstance != 0){
+    printf ("game is not over TEST FAILED\n");
+    exit(1);
+  }
 
-  G->supplyCount[province] = 0;
+  G.supplyCount[province] = 0;
   gameInstance = isGameOver(&G);
-  assert(gameInstance == 1);
-  printf ("province count = 0; Game over\n");
+  if(gameInstance != 1){
+    printf ("Province count = 0 game over TEST FAILED\n");
+    exit(1);
+  }
 
-  G->supplyCount[province] = 1;
+  G.supplyCount[province] = 1;
   gameInstance = isGameOver(&G);
-  assert(gameInstance == 0);
-  printf ("Province card stack increased. Game is not over\n");
+  if(gameInstance != 0){
+    printf ("Province count TEST FAILED");
+    exit(1);
+  }
 
   for(i=0;i<3;i++)
   {
-    G->supplyCount[i] = 0;
+    G.supplyCount[i] = 0;
   }
   gameInstance = isGameOver(&G);
-  assert(gameInstance == 1);
-  printf ("3 supply piles are empty; Game over\n");
+  if(gameInstance != 1){
+    printf ("3 empty supply piles game over TEST FAILED");
+    exit(1);
+  }
 
-  printf ("unittest1 has passed\n");
+  printf ("unittest1 TEST SUCCESSFULLY COMPLETED\n");
 
   return 0;
 }
