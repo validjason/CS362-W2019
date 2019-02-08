@@ -1,7 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "dominion.h"
-#include "structs.h"
 #include "dominion_helpers.h"
 #include <string.h>
 #include <assert.h>
