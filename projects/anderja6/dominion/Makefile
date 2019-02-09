@@ -51,6 +51,33 @@ unittestresults: unittest1.c unittest2.c dominion.c rngs.c
 	./unittestresults >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	
+	echo "unittest3.c:" >> unittestresults.out
+	gcc -o unittestresults unittest3.c dominion.c rngs.c -g $(CFLAGS)
+	./unittestresults >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
+
+	echo "unittest4.c:" >> unittestresults.out
+	gcc -o unittestresults unittest4.c dominion.c rngs.c -g $(CFLAGS)
+	./unittestresults >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
+
+	echo "cardtest1.c:" >> unittestresults.out
+	gcc -o unittestresults cardtest1.c dominion.c rngs.c -g $(CFLAGS)
+	./unittestresults >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
+
+	echo "cardtest2.c:" >> unittestresults.out
+	gcc -o unittestresults cardtest2.c dominion.c rngs.c -g $(CFLAGS)
+	./unittestresults >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
+
+	echo "cardtest3.c:" >> unittestresults.out
+	gcc -o unittestresults cardtest3.c dominion.c rngs.c -g $(CFLAGS)
+	./unittestresults >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
+
+	clear;
+	cat unittestresults.out;
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 

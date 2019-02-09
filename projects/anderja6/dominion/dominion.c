@@ -659,26 +659,25 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   if (nextPlayer > (state->numPlayers - 1)){
     nextPlayer = 0;
   }
-  
 	
   //uses switch to select card and perform actions
   switch( card ) 
     {
     case adventurer:
       adventurerCard(state, currentPlayer, temphand, drawntreasure, z);
-			
+      return 0;
     case council_room:
       councilRoomCard(state, currentPlayer, handPos);
-			
+      return 0;
     case feast:
       feastCard(state, currentPlayer, temphand, choice1);
-
+      return 0;
     case gardens:
       return -1;
 			
     case mine:
       mineCard(state, currentPlayer, choice1, choice2, handPos);
-			
+      return 0;
     case remodel:
       j = state->hand[currentPlayer][choice1];  //store card we will trash
 
@@ -707,7 +706,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 		
     case smithy:
       smithyCard(state, currentPlayer, handPos);
-
+      return 0;
     case village:
       //+1 Card
       drawCard(currentPlayer, state);
