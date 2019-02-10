@@ -32,7 +32,6 @@ int main() {
   updateCoins(0,&G,1);
 
   if(G.coins != 7){
-    printf("coin quantity = %d\n", G.coins);
     printf("updateCoins TEST FAILED\n");
   }
 

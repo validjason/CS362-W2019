@@ -23,12 +23,17 @@ int main() {
   
   //testing handcount state after smithy
   int initialHandCount = G.handCount[0];
+  int initialDeckCount = G.deckCount[0];
   cardEffect(smithy, 0, 0, 0, &G, 0, 0);
-  int afterSmithyCount = G.handCount[0];
-  
+  int finalHandCount = G.handCount[0];
+  int finalDeckCount = G.deckCount[0];
   //hand count should increase by 2
-  if((afterSmithyCount - initialHandCount) != 2) {
+  if((finalHandCount - initialHandCount) != 2) {
     printf("smithy card handCount TEST FAILED\n");
+    failedTest = 1;
+  }
+  if((initialDeckCount - finalDeckCount) != 3) {
+    printf("smithy card deckCount TEST FAILED\n");
     failedTest = 1;
   }
 

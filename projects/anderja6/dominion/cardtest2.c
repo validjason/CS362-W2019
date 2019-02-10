@@ -28,7 +28,7 @@ int main() {
   int initialDeckCount = G.deckCount[0];
   int initialHandCount = G.handCount[0];
   int initialDiscardCount = G.discardCount[0];
-
+  int initialPlayedCardCount = G.playedCardCount;
   //call card effect to test adventurerCard function
   cardEffect(adventurer, 0, 0, 0, &G, 0, 0);
 
@@ -36,10 +36,15 @@ int main() {
   int finalDeckCount = G.deckCount[0];
   int finalHandCount = G.handCount[0];
   int finalDiscardCount = G.discardCount[0];
+  int finalPlayedCardCount = G.playedCardCount;
 
   //check hand count has gained 2 cards
   if(finalHandCount != (initialHandCount + 2)){
     printf("hand count TEST FAILED\n");
+    failedTest = 1; //failed test flag
+  }
+  if((finalPlayedCardCount - initialPlayedCardCount) != 1){
+    printf("played card count TEST FAILED\n");
     failedTest = 1; //failed test flag
   }
 
@@ -64,12 +69,26 @@ int main() {
     }
   }
 
+  finalDeckCount = initialDeckCount;
+  finalHandCount = initialHandCount;
+  finalDiscardCount = initialDiscardCount;
+  finalPlayedCardCount = initialPlayedCardCount;
+
   G.deckCount[0] = 0;
   cardEffect(adventurer, 0, 0, 0, &G, 0, 0);
+
+  finalDeckCount = G.deckCount[0];
+  finalHandCount = G.handCount[0];
+  finalDiscardCount = G.discardCount[0];
+  finalPlayedCardCount = G.playedCardCount;
 
   //check hand count has gained 2 cards
   if(finalHandCount != (initialHandCount + 2)){
     printf("hand count TEST FAILED\n");
+    failedTest = 1; //failed test flag
+  }
+  if((finalPlayedCardCount - initialPlayedCardCount) != 1){
+    printf("played card count TEST FAILED\n");
     failedTest = 1; //failed test flag
   }
 
