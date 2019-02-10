@@ -74,6 +74,7 @@ int main() {
   finalDiscardCount = initialDiscardCount;
   finalPlayedCardCount = initialPlayedCardCount;
 
+  //empty deck test
   G.deckCount[0] = 0;
   cardEffect(adventurer, 0, 0, 0, &G, 0, 0);
 
