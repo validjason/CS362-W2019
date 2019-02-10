@@ -27,7 +27,6 @@ int main() {
   //initial state
   int initialDeckCount = G.deckCount[0];
   int initialHandCount = G.handCount[0];
-  int initialDiscardCount = G.discardCount[0];
   int initialNumBuys = G.numBuys;
   int initialPlayedCardCount = G.playedCardCount;
 
@@ -37,7 +36,6 @@ int main() {
   //new state
   int finalDeckCount = G.deckCount[0];
   int finalHandCount = G.handCount[0];
-  int finalDiscardCount = G.discardCount[0];
   int finalNumBuys = G.numBuys;
   int finalPlayedCardCount = G.playedCardCount;
 
