@@ -5,14 +5,22 @@
 
 char inputChar()
 {
-    // TODO: rewrite this function
-    return ' ';
+    char charPool[9] = "[({ax })]"; //char selection pool 
+    char c = charPool[rand() % 9];  //random char selection
+    return c;
 }
 
 char *inputString()
 {
-    // TODO: rewrite this function
-    return "";
+    int i = 0;      //loop counter
+    char charPool[4] = "rest"; //char selection pool
+    static char myString[6];   //string to be returned
+
+    //generates string from random char pool
+    for(i=0;i<5;i++){
+      myString[i] = charPool[rand() % 4]; 
+    }
+    return myString;
 }
 
 void testme()
