@@ -80,11 +80,11 @@ int main() {
     for(i=0;i<MAX_PLAYERS;i++) {
       if(i != playerNumber){
         if(G.handCount[i] !=0) {
-          printf("other player hand count state change TEST FAILED\n");
+          printf("other player hand count state change TEST FAILED handcount = %d\n", G.handCount[i]);
           failedTest = 1;
         }
         if(G.deckCount[i] != 10) {
-          printf("other player deck count state change TEST FAILED\n");
+          printf("other player deck count state change TEST FAILED deckCount = %d\n", G.deckCount[i]);
           failedTest = 1;
         }
       }
