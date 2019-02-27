@@ -29,6 +29,7 @@ int main() {
   shuffle(0,&G);
 
   for(j=0;(j>250000 && zeroTest > 5);j++){
+    printf("j= %d\n", j);
     int playerNumber = rand() % 4;
     G.deckCount[playerNumber] = rand() % 30;
 
