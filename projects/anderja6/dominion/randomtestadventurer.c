@@ -12,9 +12,9 @@
 int main() {
 
   srand(time(NULL));
+  int j;
   for(j=0;(j<250000);j++){
     int i;
-    int j;
     int failedTest = 0;
     int zeroTest = 0;
 
