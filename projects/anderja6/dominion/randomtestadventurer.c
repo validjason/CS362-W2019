@@ -13,7 +13,7 @@ int main() {
 
   srand(time(NULL));
   int j;
-  for(j=0;(j<250000);j++){
+  for(j=0;(j<5);j++){
     int i;
     int failedTest = 0;
     int zeroTest = 0;
