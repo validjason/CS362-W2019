@@ -12,23 +12,24 @@
 int main() {
 
   srand(time(NULL));
-  int i;
-  int j;
-  int failedTest = 0;
-  int zeroTest = 0;
+  for(j=0;(j<250000);j++){
+    int i;
+    int j;
+    int failedTest = 0;
+    int zeroTest = 0;
 
-  //initializing game
-  struct gameState G;                             //game state
+    //initializing game
+    struct gameState G;                             //game state
 
-  int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,   //player cards
+    int k[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse,   //player cards
            sea_hag, tribute, smithy};
 
-  initializeGame(4, k, 1, &G);     //initializing game
-  printf ("Beginning cardtest2...\n");               //output
+    initializeGame(4, k, 1, &G);     //initializing game
+    printf ("Beginning cardtest2...\n");               //output
   
-  shuffle(0,&G);
+    shuffle(0,&G);
 
-  for(j=0;(j>250000 && zeroTest > 5);j++){
+  
     printf("j= %d\n", j);
     int playerNumber = rand() % 4;
     G.deckCount[playerNumber] = rand() % 30;
