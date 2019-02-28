@@ -25,7 +25,7 @@ int main() {
            sea_hag, tribute, smithy};
 
     initializeGame(4, k, 1, &G);     //initializing game
-    printf ("Beginning cardtest2...\n");               //output
+    printf ("Beginning adventurer card test...\n");               //output
   
     shuffle(0,&G);
     
@@ -33,8 +33,10 @@ int main() {
     G.deckCount[0] = 10;
     G.handCount[0] = 0;
   
-    printf("j= %d\n", j);
+    //randomize player
     int playerNumber = rand() % 4;
+
+    //randomize deck count of player
     G.deckCount[playerNumber] = rand() % 30;
 
     if(G.deckCount[playerNumber] < 1){
@@ -48,26 +50,6 @@ int main() {
     int initialDiscardCount = G.discardCount[playerNumber];
     int initialPlayedCardCount = G.playedCardCount;
 
-    printf("1-initial deck count = %d\n",initialDeckCount );
-    printf("1-initial hand count = %d\n",initialHandCount );
-    printf("1-initial discard count = %d\n",initialDiscardCount );
-   
-    printf("1-initial deck count p0 = %d\n",G.deckCount[0]);
-    printf("1-initial hand count p0 = %d\n",G.handCount[0]);
-    printf("1-initial discard count p0 = %d\n",G.discardCount[0]);
-
-    printf("1-initial deck count p1 = %d\n",G.deckCount[1]);
-    printf("1-initial hand count p1 = %d\n",G.handCount[1]);
-    printf("1-initial discard count p1 = %d\n",G.discardCount[1]);
-
-    printf("1-initial deck count p2 = %d\n",G.deckCount[2]);
-    printf("1-initial hand count p2 = %d\n",G.handCount[2]);
-    printf("1-initial discard count p2 = %d\n",G.discardCount[2]);
-
-    printf("1-initial deck count p3 = %d\n",G.deckCount[3]);
-    printf("1-initial hand count p3 = %d\n",G.handCount[3]);
-    printf("1-initial discard count p3 = %d\n",G.discardCount[3]);
-
     //call card effect to test adventurerCard function
     cardEffect(adventurer, 0, 0, 0, &G, 0, 0);
 
@@ -77,38 +59,11 @@ int main() {
     int finalDiscardCount = G.discardCount[playerNumber];
     int finalPlayedCardCount = G.playedCardCount;
 
-    printf("1-final deck count = %d\n",finalDeckCount );
-    printf("1-final hand count = %d\n",finalHandCount );
-    printf("1-final discard count = %d\n",finalDiscardCount );
-
-    printf("1-final deck count p0 = %d\n",G.deckCount[0] );
-    printf("1-final hand count p0 = %d\n",G.handCount[0] );
-    printf("1-final discard count p0 = %d\n",G.discardCount[0] );
-
-    printf("1-final deck count p1 = %d\n",G.deckCount[1] );
-    printf("1-final hand count p1 = %d\n",G.handCount[1] );
-    printf("1-final discard count p1 = %d\n",G.discardCount[1] );
-
-    printf("1-final deck count p2 = %d\n",G.deckCount[2] );
-    printf("1-final hand count p2 = %d\n",G.handCount[2] );
-    printf("1-final discard count p2 = %d\n",G.discardCount[2] );
-
-    printf("1-final deck count p3 = %d\n",G.deckCount[3] );
-    printf("1-final hand count p3 = %d\n",G.handCount[3] );
-    printf("1-final discard count p3 = %d\n",G.discardCount[3] );
-
-
     //check hand count has gained 2 cards
     if(finalHandCount != (initialHandCount + 2)){
-      printf("hand count TEST FAILED\n");
-      printf("initialHandCount = %d\n", initialHandCount);
-      printf("finalHandCount = %d\n", finalHandCount);
       failedTest = 1; //failed test flag
     }
     if((finalPlayedCardCount - initialPlayedCardCount) != 1){
-      printf("played card count TEST FAILED\n");
-      printf("initialPlayedCardCount = %d\n", initialPlayedCardCount);
-      printf("finalPlayedCardCount = %d\n", finalPlayedCardCount);
       failedTest = 1; //failed test flag
     }
 
