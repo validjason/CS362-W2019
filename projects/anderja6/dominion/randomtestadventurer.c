@@ -14,7 +14,7 @@ int main() {
   srand(time(NULL));
   int j;
   int zeroTest = 0;
-  
+
   for(j=0;(j<100);j++){
     int i;
     int failedTest = 0;
@@ -94,7 +94,6 @@ int main() {
       }
     }
 
-    printf("Empty Deck tests completed: %d\n", zeroTest);
     if(failedTest < 1) {
       printf ("adventurer card TEST SUCCESSFULLY COMPLETED\n"); //output
     }

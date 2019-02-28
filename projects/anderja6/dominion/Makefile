@@ -34,7 +34,7 @@ randomtestresults: randomtestadventurer.c dominion.c rngs.c
 	echo "randomtestadventurer.c:" >> randomtestadventurer.out
 	gcc -o randomtestadventurer randomtestadventurer.c dominion.c rngs.c -g $(CFLAGS)
 	./randomtestadventurer >> randomtestadventurer.out
-	gcov -f dominion.c >> randomtestadventurer.out
+	gcov -f -b dominion.c >> randomtestadventurer.out
 	
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
