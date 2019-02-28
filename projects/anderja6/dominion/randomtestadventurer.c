@@ -13,10 +13,12 @@ int main() {
 
   srand(time(NULL));
   int j;
+  int zeroTest = 0;
+  
   for(j=0;(j<100);j++){
     int i;
     int failedTest = 0;
-    int zeroTest = 0;
+    
 
     //initializing game
     struct gameState G;                             //game state
