@@ -61,9 +61,11 @@ int main() {
 
     //check hand count has gained 2 cards
     if(finalHandCount != (initialHandCount + 2)){
+      printf("hand count TEST FAILED\n");
       failedTest = 1; //failed test flag
     }
     if((finalPlayedCardCount - initialPlayedCardCount) != 1){
+      printf("played card count TEST FAILED\n");
       failedTest = 1; //failed test flag
     }
 
