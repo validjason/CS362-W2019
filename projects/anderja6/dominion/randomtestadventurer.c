@@ -92,6 +92,7 @@ int main() {
       }
     }
 
+    printf("Empty Deck tests completed: %d\n", zeroTest);
     if(failedTest < 1) {
       printf ("adventurer card TEST SUCCESSFULLY COMPLETED\n"); //output
     }
