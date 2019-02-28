@@ -93,7 +93,7 @@ int main() {
     }
 
     if(failedTest < 1) {
-      printf ("cardtest2 TEST SUCCESSFULLY COMPLETED\n"); //output
+      printf ("adventurer card TEST SUCCESSFULLY COMPLETED\n"); //output
     }
   }  
   return 0;
