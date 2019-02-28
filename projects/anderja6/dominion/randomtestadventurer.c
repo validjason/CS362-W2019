@@ -28,7 +28,10 @@ int main() {
     printf ("Beginning cardtest2...\n");               //output
   
     shuffle(0,&G);
-
+    
+    //setting all players even after init before random pic and assignment
+    G.deckCount[0] = 10;
+    G.handCount[0] = 0;
   
     printf("j= %d\n", j);
     int playerNumber = rand() % 4;
@@ -94,7 +97,7 @@ int main() {
     printf("1-final hand count p3 = %d\n",G.handCount[3] );
     printf("1-final discard count p3 = %d\n",G.discardCount[3] );
 
-    
+
     //check hand count has gained 2 cards
     if(finalHandCount != (initialHandCount + 2)){
       printf("hand count TEST FAILED\n");
