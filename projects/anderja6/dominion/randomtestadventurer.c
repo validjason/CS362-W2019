@@ -41,8 +41,11 @@ int main() {
     G.whoseTurn = playerNumber;
     //initial state
     int initialDeckCount = G.deckCount[playerNumber];
+    printf("*initial deck count = %d\n",initialDeckCount );
     int initialHandCount = G.handCount[playerNumber];
+    printf("*initial hand count = %d\n",initialHandCount );
     int initialDiscardCount = G.discardCount[playerNumber];
+    printf("*initial discard count = %d\n",initialDiscardCount );
     int initialPlayedCardCount = G.playedCardCount;
     //call card effect to test adventurerCard function
     cardEffect(adventurer, 0, 0, 0, &G, 0, 0);
