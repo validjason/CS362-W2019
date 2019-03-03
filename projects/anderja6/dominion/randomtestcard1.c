@@ -34,8 +34,7 @@ int main() {
     G.handCount[0] = 0;
     
     //randomize player
-      int playerNumber = rand() % 4;
-      printf("playerNumber = %d\n", playerNumber);
+    int playerNumber = rand() % 4;
 
     G.whoseTurn = playerNumber;
 
@@ -87,7 +86,7 @@ int main() {
     if(failedTest < 1) {
       printf ("cardtest1 TEST SUCCESSFULLY COMPLETED\n"); //output
     }
-    printf("zeroTest Count = %d", zeroTest);
+    printf("zeroTest Count = %d\n", zeroTest);
   }
   return 0;
 }
