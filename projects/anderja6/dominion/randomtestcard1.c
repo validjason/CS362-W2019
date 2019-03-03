@@ -40,7 +40,7 @@ int main() {
 
     //randomize deck count of player
     G.deckCount[playerNumber] = rand() % 30;
-    printf("deckCount = %d", G.deckCount[playerNumber]);
+    printf("deckCount = %d\n", G.deckCount[playerNumber]);
 
     //flag when zero deck count case is tested
     if(G.deckCount[playerNumber] < 1){
