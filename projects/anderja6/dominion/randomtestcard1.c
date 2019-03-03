@@ -5,6 +5,7 @@
 #include <string.h>
 #include <assert.h>
 #include "rngs.h"
+#include <time.h>
 
 
 //smithy card test
