@@ -18,7 +18,7 @@ int main() {
   int j;
   int zeroTest = 0;
 
-  for(j=0;(j<100);j++){
+  for(j=0;(j<5);j++){
     //initializing game
     struct gameState G;                             //game state
 
@@ -35,6 +35,9 @@ int main() {
     
     //randomize player
       int playerNumber = rand() % 4;
+      printf("playerNumber = %d\n", playerNumber);
+
+    G.whoseTurn = playerNumber;
 
     //randomize deck count of player
     G.deckCount[playerNumber] = rand() % 30;
