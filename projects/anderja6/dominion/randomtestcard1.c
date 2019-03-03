@@ -16,7 +16,6 @@ int main() {
   int failedTest = 0;
   
   int j;
-  int zeroTest = 0;
 
   for(j=0;(j<100);j++){
     //initializing game
@@ -40,11 +39,6 @@ int main() {
 
     //randomize deck count of player
     G.deckCount[playerNumber] = (rand() % 30) + 3;
-
-    //flag when zero deck count case is tested
-    if(G.deckCount[playerNumber] < 1){
-      zeroTest++;
-    }
 
     //testing handcount state after smithy
     int initialHandCount = G.handCount[playerNumber];
@@ -86,7 +80,6 @@ int main() {
     if(failedTest < 1) {
       printf ("cardtest1 TEST SUCCESSFULLY COMPLETED\n"); //output
     }
-    printf("zeroTest Count = %d\n", zeroTest);
   }
   return 0;
 }
