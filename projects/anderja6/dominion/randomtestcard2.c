@@ -5,6 +5,7 @@
 #include <string.h>
 #include <assert.h>
 #include "rngs.h"
+#include <time.h>
 
 
 //council room card test
@@ -24,7 +25,7 @@ int main() {
             sea_hag, tribute, smithy};
 
     initializeGame(4, k, 1, &G);     //initializing game
-    printf ("Beginning cardtest3...\n");               //output
+    printf ("Beginning random Council Room card test...\n");               //output
     
     
     shuffle(0,&G);
