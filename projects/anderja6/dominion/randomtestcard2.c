@@ -39,7 +39,7 @@ int main() {
     int playerNumber = rand() % 4;
 
     //randomize deck count of player
-    G.deckCount[playerNumber] = (rand() % 30) + 3;
+    G.deckCount[playerNumber] = (rand() % 30) + 4;
 
     G.whoseTurn = playerNumber;
     //initial state
