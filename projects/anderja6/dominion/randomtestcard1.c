@@ -39,7 +39,7 @@ int main() {
     G.whoseTurn = playerNumber;
 
     //randomize deck count of player
-    G.deckCount[playerNumber] = rand() % 30;
+    G.deckCount[playerNumber] = rand() % 30 + 3;
     printf("deckCount = %d\n", G.deckCount[playerNumber]);
 
     //flag when zero deck count case is tested
@@ -50,7 +50,9 @@ int main() {
     //testing handcount state after smithy
     int initialHandCount = G.handCount[playerNumber];
     int initialDeckCount = G.deckCount[playerNumber];
-
+    printf("initial hand count = %d\n",initialHandCount);
+    printf("initial deck count = %d\n",initialDeckCount);
+    
     //function call
     cardEffect(smithy, 0, 0, 0, &G, 0, 0);
     int finalHandCount = G.handCount[playerNumber];
