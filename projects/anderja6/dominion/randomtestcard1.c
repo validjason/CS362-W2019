@@ -18,7 +18,7 @@ int main() {
   int j;
   int zeroTest = 0;
 
-  for(j=0;(j<5);j++){
+  for(j=0;(j<100);j++){
     //initializing game
     struct gameState G;                             //game state
 
@@ -87,6 +87,7 @@ int main() {
     if(failedTest < 1) {
       printf ("cardtest1 TEST SUCCESSFULLY COMPLETED\n"); //output
     }
+    printf("zeroTest Count = %d", zeroTest);
   }
   return 0;
 }
