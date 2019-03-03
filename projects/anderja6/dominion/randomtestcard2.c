@@ -14,7 +14,8 @@ int main() {
   srand(time(NULL));
   int j;
 
-  for(j=0;(j<5);j++){
+  //randomized testing loop
+  for(j=0;(j<100);j++){
     int i;
     int failedTest = 0;
 
@@ -30,6 +31,7 @@ int main() {
     
     shuffle(0,&G);
 
+    //setting all players equal after game init
     G.deckCount[0] = 10;
     G.handCount[0] = 0;
   
