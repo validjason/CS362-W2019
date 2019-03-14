@@ -216,6 +216,10 @@ public class UrlValidatorTest extends TestCase {
 						}
 					}
 			   }
+			   else
+			   {
+				   failCount++;
+			   }
 			   System.out.println("");
 			}
 		}
