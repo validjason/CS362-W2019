@@ -32,7 +32,7 @@ public class UrlValidatorTest extends TestCase {
 	 //You can use this function to implement your First Partition testing
 	 boolean expected = true;
 	 List<String> failure = new ArrayList<String>();
-	 UrlValidator urlVal = new UrlValidator(null, null, 0);
+	 UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
 	 String testUrl = ""; 
 	 
 	 for(int i = 0; i < testScheme.length; i++) {
@@ -53,7 +53,7 @@ public class UrlValidatorTest extends TestCase {
 	   //You can use this function to implement your Second Partition testing
 	   boolean expected = true;
 	   List<String> failure = new ArrayList<String>();
-	   UrlValidator urlVal = new UrlValidator(null, null, 0);
+	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
 	   String testUrl = "";
 	   
 	   for(int i = 0; i < testAuthority.length; i++) {
@@ -74,7 +74,7 @@ public class UrlValidatorTest extends TestCase {
 	   //You can use this function to implement your Second Partition testing
 	   boolean expected = true;
 	   List<String> failure = new ArrayList<String>();
-	   UrlValidator urlVal = new UrlValidator(null, null, 0);
+	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
 	   String testUrl = "";
 	   
 	   for(int i = 0; i < testPort.length; i++) {
@@ -95,7 +95,7 @@ public class UrlValidatorTest extends TestCase {
 	   //You can use this function to implement your Second Partition testing
 	   boolean expected = true;
 	   List<String> failure = new ArrayList<String>();
-	   UrlValidator urlVal = new UrlValidator(null, null, 0);
+	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
 	   String testUrl = "";
 	   
 	   for(int i = 0; i < testPath.length; i++) {
@@ -116,7 +116,7 @@ public class UrlValidatorTest extends TestCase {
 	   //You can use this function to implement your Second Partition testing
 	   boolean expected = true;
 	   List<String> failure = new ArrayList<String>();
-	   UrlValidator urlVal = new UrlValidator(null, null, 0);
+	   UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
 	   String testUrl = "";
 	   
 	   for(int i = 0; i < testQuery.length; i++) {
@@ -138,11 +138,12 @@ public class UrlValidatorTest extends TestCase {
 	   //You can use this function for programming based testing
 		ResultPair[][] parts = {testUrlScheme, testUrlAuthority, testUrlPort, testUrlPath, testUrlQuery};
 		int[] index = {0, 0, 0, 0, -1};
-		UrlValidator testValidator = new UrlValidator();
+		UrlValidator testValidator = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
 		
 		int count = 0; //the number of URL's that are tested
 		int trueCount = 0; //the number of URLs that that evaluate to true
 		int failCount = 0; //number of URLS failed the test
+		int passCount = 0; //number of invalid URLs that passed validation
 		//Test every combination, until the first index has tested all parts in its pair Array
 		while (index[0] != parts[0].length)
 		{
@@ -162,7 +163,9 @@ public class UrlValidatorTest extends TestCase {
 					System.out.println("Results for unit based testing:");
 					System.out.println("Number of tested URLs: " + count);
 					System.out.println("Valid URLs: " + trueCount);
-					System.out.println("Valid URL's that did not pass validation: " + failCount + "\n");
+					System.out.println("Valid URL's that did not pass validation: " + failCount);
+					System.out.println("Invalid URLs: " + (count - trueCount));
+					System.out.println("Invalid URL's that passed validation: " + passCount + "\n");
 					return;
 				}
 			}
@@ -188,6 +191,7 @@ public class UrlValidatorTest extends TestCase {
 			   //Print out the parts that should have failed if the scheme is not valid but result is valid
 			   if (isValid == false)
 			   {
+				   passCount++; //increment the count of invalid URLS that passed validation
 				   System.out.print("  Invalid parts: ");
 					for (int i = 0; i < index.length; i++)
 					{
