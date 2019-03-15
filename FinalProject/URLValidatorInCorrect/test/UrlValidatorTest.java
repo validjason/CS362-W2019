@@ -18,35 +18,118 @@ public class UrlValidatorTest extends TestCase {
       super(testName);
    }
 
-   
-   
-   public void testManualTest()
-   {
-//You can use this function to implement your manual testing	   
-	   
-   }
-   
-   
-   public void testSchemePartition()
-   {
-	 //You can use this function to implement your First Partition testing
-	 boolean expected = true;
-	 List<String> failure = new ArrayList<String>();
-	 UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
-	 String testUrl = ""; 
+
+
+	public void testManualTest() {
+		String testUrl = "";
+		List<String> failure = new ArrayList<String>();
+		UrlValidator urlVal = new UrlValidator(null, null, 0);
+
+		//failing
+		testUrl = "www.google.com";
+		boolean expected = true;
+		if(urlVal.isValid(testUrl) != expected){
+			failure.add(testUrl);
+		}
+
+		testUrl = "ww.google.com";
+		expected = false;
+		if(urlVal.isValid(testUrl) != expected){
+			failure.add(testUrl);
+		}
+
+		testUrl = "http://www.google.com";
+		expected = true;
+		if(urlVal.isValid(testUrl) != expected){
+			failure.add(testUrl);
+		}
+
+		testUrl = "htp://www.google.com";
+		expected = false;
+		if(urlVal.isValid(testUrl) != expected){
+			failure.add(testUrl);
+		}
+
+		testUrl = "http://255.255.255.255";
+		expected = true;
+		if(urlVal.isValid(testUrl) != expected){
+			failure.add(testUrl);
+		}
+		//failing
+		testUrl = "http://256.256.256.256";
+		expected = false;
+		if(urlVal.isValid(testUrl) != expected){
+			failure.add(testUrl);
+		}
+
+		testUrl = "http://255.255.255.255:65535";
+		expected = true;
+		if(urlVal.isValid(testUrl) != expected){
+			failure.add(testUrl);
+		}
+
+		testUrl = "http://255.255.255.255:65536";
+		expected = false;
+		if(urlVal.isValid(testUrl) != expected){
+			failure.add(testUrl);
+		}
+
+		testUrl = "http://www.google.com/";
+		expected = true;
+		if(urlVal.isValid(testUrl) != expected){
+			failure.add(testUrl);
+		}
+
+		testUrl = "http://www.google.com//";
+		expected = false;
+		if(urlVal.isValid(testUrl) != expected){
+			failure.add(testUrl);
+		}
+
+		testUrl = "http://www.google.com/?action=edit&mode=up";
+		expected = true;
+		if(urlVal.isValid(testUrl) != expected){
+			failure.add(testUrl);
+		}
+
+		testUrl = "http://www.google.com/?act=edit&mode=up";
+		expected = false;
+		if(urlVal.isValid(testUrl) != expected){
+			failure.add(testUrl);
+		}
+
+
+		if(failure.size() > 0) {
+			System.out.println("Manual Test failures: ");
+			System.out.println(failure);
+		}
+		else if(failure.size() < 1) {
+			System.out.println("Manual Tests Passed");
+		}
+	}
+
+
+
+
+	public void testSchemePartition() {
+   		//You can use this function to implement your First Partition testing
+	 	boolean expected = true;
+	 	List<String> failure = new ArrayList<String>();
+	 	UrlValidator urlVal = new UrlValidator(null, null, UrlValidator.ALLOW_ALL_SCHEMES);
+	 	String testUrl = "";
 	 
-	 for(int i = 0; i < testScheme.length; i++) {
-		 testUrl = testScheme[i].item + "www.google.com";
-		 expected = testScheme[i].valid;
+	 	for(int i = 0; i < testScheme.length; i++) {
+		 	testUrl = testScheme[i].item + "www.google.com";
+		 	expected = testScheme[i].valid;
 		 
-		 if(urlVal.isValid(testUrl) != expected) {
-			 failure.add(testScheme[i].item);
-		 }
-	 }
-	 if(failure.size() > 0) {
-		 System.out.println("Scheme partition failures: ");
-		 System.out.println(failure);
-	 }
+		 	if(urlVal.isValid(testUrl) != expected) {
+			 	failure.add(testScheme[i].item);
+		 	}
+	 	}
+	 	if(failure.size() > 0) {
+		 	System.out.println("Scheme partition failures: ");
+		 	System.out.println(failure);
+	 	}
    }
    
    public void testAuthorityPartition(){
@@ -237,6 +320,7 @@ public class UrlValidatorTest extends TestCase {
 	   test.testPortPartition();
 	   test.testPathPartition();
 	   test.testQueryPartition();
+	   test.testManualTest();
    }
    
    static ResultPair[] testScheme = {new ResultPair("http://", true),
