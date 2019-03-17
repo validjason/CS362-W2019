@@ -25,9 +25,8 @@ public class UrlValidatorTest extends TestCase {
 		List<String> failure = new ArrayList<String>();
 		UrlValidator urlVal = new UrlValidator(null, null, 0);
 
-		//failing
 		testUrl = "www.google.com";
-		boolean expected = true;
+		boolean expected = false;
 		if(urlVal.isValid(testUrl) != expected){
 			failure.add(testUrl);
 		}
@@ -93,7 +92,7 @@ public class UrlValidatorTest extends TestCase {
 		}
 
 		testUrl = "http://www.google.com/?act=edit&mode=up";
-		expected = false;
+		expected = true;
 		if(urlVal.isValid(testUrl) != expected){
 			failure.add(testUrl);
 		}
